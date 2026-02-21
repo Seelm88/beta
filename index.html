@@ -21,7 +21,7 @@
             width: 100%;
             height: 400px;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1500') center/cover;
+                        url('https://i.imgur.com/MYxqJCY.jpeg') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -146,9 +146,9 @@
     </header>
 
     <nav>
-        <a href="#" class="nav-btn">HOME</a>
-        <a href="#" class="nav-btn">SERVER HOSTING</a>
-        <a href="#" class="nav-btn">DISCORD</a>
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="Serverhosting.html" class="nav-btn">SERVER HOSTING</a>
+        <a href="https://discord.gg/cPDBsjYtyG" class="nav-btn">DISCORD</a>
     </nav>
 
     <div class="container">
@@ -158,29 +158,34 @@
             <p>Join the chaos, the coordination, and the amphibious domination today.</p>
         </div>
 
-        <div class="card" style="text-align: center;">
-            <h2>Check Us Out</h2>
-            <div class="social-grid">
-                <div class="social-item"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok"></div>
-                <div class="social-item"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></div>
-            </div>
-        </div>
-
-        <div class="card donate-box">
-            <h2>Support the Battalion</h2>
-            <p>Help us grow! Contributions go directly toward hosting events and prizes for the 513th.</p>
-            <button class="donate-btn" onclick="processDonation()">Donate via PayPal</button>
-            <div class="qr-placeholder">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=513th" alt="QR Code" style="width:100%">
-            </div>
-        </div>
+<div class="social-grid">
+    <div class="social-item">
+        <a href="https://www.tiktok.com/@513thfrogbattalion" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
+        </a>
     </div>
+
+    <div class="social-item">
+        <a href="https://www.youtube.com/@513thFrogs" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+        </a>
+    </div>
+</div>
+
+<div class="card donate-box">
+    <h2>Support the Battalion</h2>
+    <p>Help us grow! Contributions go directly toward hosting events and prizes for the 513th.</p>
+    
+    <a href="https://www.paypal.com/donate/?hosted_button_id=UE95NU5CNT8MG" target="_blank" style="text-decoration: none;">
+        <button class="donate-btn">Donate via PayPal</button>
+    </a>
+</div>>
 
     <script>
         // Simple JavaScript for interactivity
         function processDonation() {
             alert("Redirecting to PayPal Secure Checkout...");
-            // window.location.href = 'YOUR_PAYPAL_LINK_HERE';
+            // window.location.href = 'https://www.paypal.com/donate/?hosted_button_id=UE95NU5CNT8MG';
         }
 
         // Add a subtle scroll effect to the title
