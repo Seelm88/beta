@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Hosting | 513th Frog Battalion</title>
+    <title>513th Frog Battalion | Leap into Victory</title>
     <style>
         :root {
             --bg-dark: #0b0c10;
@@ -15,32 +15,51 @@
             --accent-red-hover: #e74c3c;
         }
 
-        body {
+body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: var(--bg-dark);
+            /* STATISK BAGGRUND (Selve siden) */
+            background-image: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.7)), 
+                              url('bakgrund.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
             color: var(--text-main);
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Header / Hero */
+            /* HEADER (Top sektionen) */
         header {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://i.imgur.com/MYxqJCY.jpeg') center/cover;
+            width: 80%;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://i.imgur.com/MYxqJCY.jpeg') center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+    
+            /* Ramar - matchar din border-bottom */
             border-bottom: 4px solid var(--secondary);
+            border-left: 4px solid var(--secondary);
+            border-right: 4px solid var(--secondary);
+
+            /* Runda av alla hörn */
+            border-radius: 15px;
+    
+            box-sizing: border-box;
+            margin-top: 20px; /* Ger lite distans från toppen av sidan */
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             color: #ffffff;
             margin: 0;
             text-transform: uppercase;
@@ -48,18 +67,24 @@
             text-shadow: 2px 2px 10px rgba(0,0,0,1);
         }
 
+        header p {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
         /* Navigation */
         nav {
-            margin-top: -25px;
+            margin-top: -30px;
             display: flex;
             gap: 15px;
-            z-index: 10;
+            z-index: 30; /* Ligger ovanför headern */
         }
 
         .nav-btn {
             background: #1f2833;
             color: var(--primary);
-            padding: 10px 20px;
+            padding: 12px 25px;
             text-decoration: none;
             font-weight: bold;
             border: 2px solid var(--secondary);
@@ -74,11 +99,13 @@
             transform: translateY(-3px);
         }
 
-        /* Container */
+        /* Content Structure */
         .container {
             max-width: 900px;
             width: 90%;
-            margin: 50px 0;
+            margin: 60px 0;
+            position: relative;
+            z-index: 10;
         }
 
         .card {
@@ -88,9 +115,15 @@
             margin-bottom: 30px;
             border-left: 5px solid var(--primary);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
         }
 
         h2 { color: var(--primary); border-bottom: 1px solid var(--secondary); padding-bottom: 10px; margin-top: 0; }
+        h3 { color: var(--secondary); margin-top: 20px; }
+
+        ul { list-style: none; padding-left: 0; }
+        li { margin-bottom: 12px; line-height: 1.6; }
+        .check { color: var(--primary); font-weight: bold; margin-right: 8px; }
         
         /* Server List Styling */
         .server-entry {
