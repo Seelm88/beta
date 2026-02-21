@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>513th Frog Battalion | Leap into Victory</title>
     <style>
-        /* Base Styling */
+        :root {
+            --bg-dark: #0b0c10;
+            --bg-card: rgba(31, 40, 51, 0.9);
+            --primary: #66fcf1;
+            --secondary: #45a29e;
+            --text-main: #c5c6c7;
+            --accent-red: #c0392b;
+            --accent-red-hover: #e74c3c;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: #0b0c10; /* Dark military matte */
-            color: #c5c6c7;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -27,11 +36,11 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 4px solid #45a29e;
+            border-bottom: 4px solid var(--secondary);
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             color: #ffffff;
             margin: 0;
             text-transform: uppercase;
@@ -42,86 +51,93 @@
         header p {
             font-style: italic;
             font-size: 1.2rem;
-            color: #66fcf1;
+            color: var(--primary);
         }
 
-        /* Navigation Bar */
+        /* Navigation */
         nav {
             margin-top: -30px;
             display: flex;
             gap: 15px;
+            z-index: 10;
         }
 
         .nav-btn {
             background: #1f2833;
-            color: #66fcf1;
+            color: var(--primary);
             padding: 12px 25px;
             text-decoration: none;
             font-weight: bold;
-            border: 2px solid #45a29e;
+            border: 2px solid var(--secondary);
             border-radius: 5px;
-            transition: 0.3s;
+            transition: 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .nav-btn:hover {
-            background: #66fcf1;
-            color: #0b0c10;
+            background: var(--primary);
+            color: var(--bg-dark);
             transform: translateY(-3px);
         }
 
-        /* Content Containers */
+        /* Content Structure */
         .container {
             max-width: 900px;
             width: 90%;
-            margin: 40px 0;
+            margin: 60px 0;
         }
 
         .card {
-            background: rgba(31, 40, 51, 0.8);
+            background: var(--bg-card);
             border-radius: 10px;
             padding: 30px;
             margin-bottom: 30px;
-            border-left: 5px solid #66fcf1;
+            border-left: 5px solid var(--primary);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h2 { color: #66fcf1; border-bottom: 1px solid #45a29e; padding-bottom: 10px; margin-top: 0; }
-        h3 { color: #45a29e; }
+        h2 { color: var(--primary); border-bottom: 1px solid var(--secondary); padding-bottom: 10px; margin-top: 0; }
+        h3 { color: var(--secondary); margin-top: 20px; }
 
-        /* List Styling */
         ul { list-style: none; padding-left: 0; }
         li { margin-bottom: 12px; line-height: 1.6; }
-        .check { color: #66fcf1; font-weight: bold; margin-right: 8px; }
+        .check { color: var(--primary); font-weight: bold; margin-right: 8px; }
 
-        /* Social Icons Section */
+        /* Socials */
         .social-grid {
             display: flex;
             justify-content: center;
             gap: 40px;
-            margin-top: 20px;
+            margin-bottom: 30px;
         }
 
         .social-item img {
-            width: 120px;
-            filter: grayscale(30%);
-            transition: 0.3s;
-            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            transition: 0.3s ease;
+            border-radius: 50%;
         }
 
         .social-item img:hover {
-            filter: grayscale(0%);
             transform: scale(1.1);
+            box-shadow: 0 0 20px var(--primary);
         }
 
-        /* Donation Section */
+        /* Discord */
+        .discord-frame {
+            border-top: 1px solid var(--secondary);
+            padding-top: 30px;
+        }
+
+        /* Donation */
         .donate-box {
             text-align: center;
             background: linear-gradient(145deg, #1f2833, #0b0c10);
         }
 
         .donate-btn {
-            background: #c0392b;
+            background: var(--accent-red);
             color: white;
             padding: 15px 40px;
             font-size: 1.1rem;
@@ -129,19 +145,15 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: 0.3s ease;
+            text-transform: uppercase;
         }
 
-        .donate-btn:hover { background: #e74c3c; }
-
-        .qr-placeholder {
-            background: white;
-            width: 150px;
-            height: 150px;
-            margin: 20px auto;
-            padding: 10px;
-            border-radius: 10px;
+        .donate-btn:hover { 
+            background: var(--accent-red-hover);
+            transform: scale(1.05);
         }
+
     </style>
 </head>
 <body>
@@ -157,7 +169,7 @@
         <a href="https://discord.gg/cPDBsjYtyG" class="nav-btn">DISCORD</a>
     </nav>
 
-<div class="container">
+    <div class="container">
         
         <div class="card">
             <h2>🐸 Welcome to the Frontlines</h2>
@@ -167,67 +179,53 @@
             <h3>Why join the Battalion?</h3>
             <ul>
                 <li><span class="check">✔</span> <strong>Coordinated SRE/SQB:</strong> Experience high-level tactical gameplay with a team that focuses on both results and camaraderie.</li>
-                <li><span class="check">✔</span> <strong>Events & Competitions:</strong> Participate in our internal tournaments and unique events where glory (and sometimes prizes) are on the line.</li>
-                <li><span class="check">✔</span> <strong>Dedicated Servers:</strong> We provide stable, dedicated servers to ensure the best possible gaming experience for our members.</li>
-                <li><span class="check">✔</span> <strong>Brotherhood (and Memes):</strong> Our Discord is the heart of the battalion—a place for strategy, support, and superior frog-tier humor.</li>
+                <li><span class="check">✔</span> <strong>Events & Competitions:</strong> Participate in our internal tournaments and unique events where glory is on the line.</li>
+                <li><span class="check">✔</span> <strong>Dedicated Servers:</strong> We provide stable servers to ensure the best gaming experience for our members.</li>
+                <li><span class="check">✔</span> <strong>Brotherhood (and Memes):</strong> Our Discord is the heart of the battalion—a place for strategy and superior frog-tier humor.</li>
             </ul>
 
-            <p style="font-style: italic; border-top: 1px solid #45a29e; padding-top: 15px; margin-top: 20px;">
-                Whether you’re a hardened veteran with a full hangar or a new recruit looking for a reliable wingman, you’ve just found your unit. Suit up, hop in, and let's cause some havoc.
+            <p style="font-style: italic; border-top: 1px solid var(--secondary); padding-top: 15px; margin-top: 20px;">
+                Whether you’re a hardened veteran or a new recruit, you’ve just found your unit. Suit up, hop in, and let's cause some havoc.
             </p>
         </div>
 
-<div class="social-grid">
-    <div class="social-item">
-        <a href="https://www.tiktok.com/@513thfrogbattalion" target="_blank">
-            <img src="frog_tiktok.jpg" alt="TikTok">
-        </a>
-    </div>
+        <div class="card">
+            <h2>Community Hub</h2>
+            <div class="social-grid">
+                <a href="https://www.tiktok.com/@513thfrogbattalion" target="_blank" class="social-item">
+                    <img src="frog_tiktok.jpg" alt="TikTok">
+                </a>
+                <a href="https://www.youtube.com/@513thFrogs" target="_blank" class="social-item">
+                    <img src="frog_youtube.jpg" alt="YouTube">
+                </a>
+            </div>
 
-    <div class="social-item">
-        <a href="https://www.youtube.com/@513thFrogs" target="_blank">
-            <img src="frog_youtube.jpg" alt="YouTube">
-        </a>
+            <div class="discord-frame">
+                <h3>Join Our Discord</h3>
+                <iframe 
+                    src="https://discord.com/widget?id=1196158088642822205&theme=dark" 
+                    width="100%" 
+                    height="500" 
+                    allowtransparency="true" 
+                    frameborder="0" 
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                    style="border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="card donate-box">
+            <h2>Support the Battalion</h2>
+            <p>Help us grow! Contributions go directly toward hosting events and prizes for the 513th.</p>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=UE95NU5CNT8MG" target="_blank" style="text-decoration: none;">
+                <button class="donate-btn">Donate via PayPal</button>
+            </a>
+        </div>
+
     </div>
-</div>
-<div style="border-top: 1px solid #45a29e; padding-top: 30px;">
-        <h3 style="color: #66fcf1; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">Join Our Discord</h3>
-        <iframe 
-            class="w-full" 
-            src="https://discord.com/widget?id=1196158088642822205&theme=dark" 
-            width="100%" 
-            height="500" 
-            allowtransparency="true" 
-            frameborder="0" 
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-            style="border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-        </iframe>
-    </div>
-</div>
-<div class="card donate-box">
-    <h2>Support the Battalion</h2>
-    <p>Help us grow! Contributions go directly toward hosting events and prizes for the 513th.</p>
-    
-    <a href="https://www.paypal.com/donate/?hosted_button_id=UE95NU5CNT8MG" target="_blank" style="text-decoration: none;">
-        <button class="donate-btn">Donate via PayPal</button>
-    </a>
-</div>
 
     <script>
-        // Simple JavaScript for interactivity
-        function processDonation() {
-            alert("Redirecting to PayPal Secure Checkout...");
-            // window.location.href = 'https://www.paypal.com/donate/?hosted_button_id=UE95NU5CNT8MG';
-        }
-
-        // Add a subtle scroll effect to the title
+        // Parallax effect for Header Title
         window.addEventListener('scroll', () => {
-            let title = document.getElementById('main-title');
-            let value = window.scrollY;
-            title.style.marginTop = value * 0.5 + 'px';
-            title.style.opacity = 1 - (value / 400);
-        });
-    </script>
-
-</body>
-</html>
+            const title = document.getElementById('main-title');
+            const scrollVal = window.scrollY;
