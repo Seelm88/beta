@@ -32,21 +32,31 @@ body {
             align-items: center;
         }
 
-        /* HEADER (Top sektionen) */
-header {
+            /* HEADER (Top sektionen) */
+        header {
             width: 80%;
             height: 400px;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                 url('https://i.imgur.com/MYxqJCY.jpeg') center;
-            background-size: 100% auto; /* Tvingar bredden att vara 100%, vilket zoomar ut */
+            background-size: 100% auto;
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+    
+            /* Ramar - matchar din border-bottom */
             border-bottom: 4px solid var(--secondary);
-}
+            border-left: 4px solid var(--secondary);
+            border-right: 4px solid var(--secondary);
+    
+            /* Ser till att 80% bredd inkluderar ramarna */
+            box-sizing: border-box; 
+    
+            /* Valfritt: runda av de övre hörnen lite om du vill matcha korten */
+            border-radius: 10px 10px 0 0; 
+        }
 
         header h1 {
             font-size: clamp(2.5rem, 8vw, 4rem);
