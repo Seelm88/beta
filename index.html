@@ -18,9 +18,9 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            /* Statisk bakgrundsbild med mörkt filter */
+            /* Statisk bakgrund för resten av sidan */
             background-image: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.7)), 
-                              url('bakgrund.jpg');
+                              url('https://i.imgur.com/MYxqJCY.jpeg');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -32,17 +32,20 @@
             align-items: center;
         }
 
-        /* Hero Section - Nu genomskinlig för att visa bakgrunden */
+        /* Hero Section - Solid bakgrund som täcker statiska bilden */
         header {
             width: 100%;
             height: 400px;
-            background: transparent; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://i.imgur.com/MYxqJCY.jpeg') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             border-bottom: 4px solid var(--secondary);
+            position: relative;
+            z-index: 20;
         }
 
         header h1 {
@@ -58,7 +61,6 @@
             font-style: italic;
             font-size: 1.2rem;
             color: var(--primary);
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         }
 
         /* Navigation */
@@ -66,7 +68,7 @@
             margin-top: -30px;
             display: flex;
             gap: 15px;
-            z-index: 10;
+            z-index: 30; /* Ligger ovanför headern */
         }
 
         .nav-btn {
@@ -92,6 +94,8 @@
             max-width: 900px;
             width: 90%;
             margin: 60px 0;
+            position: relative;
+            z-index: 10;
         }
 
         .card {
@@ -101,7 +105,7 @@
             margin-bottom: 30px;
             border-left: 5px solid var(--primary);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px); /* Ger en snygg glaseffekt mot bakgrunden */
+            backdrop-filter: blur(5px);
         }
 
         h2 { color: var(--primary); border-bottom: 1px solid var(--secondary); padding-bottom: 10px; margin-top: 0; }
@@ -121,8 +125,8 @@
         }
 
         .social-item img {
-            width: 100px; /* Justerad storlek för att få plats med tre i rad */
-            height: 100px;
+            width: 110px;
+            height: 110px;
             object-fit: contain;
             transition: 0.3s ease;
             border-radius: 50%;
@@ -133,13 +137,12 @@
             box-shadow: 0 0 20px var(--primary);
         }
 
-        /* Discord */
         .discord-frame {
             border-top: 1px solid var(--secondary);
             padding-top: 30px;
         }
 
-        /* Donation */
+        /* Donation Card */
         .donate-box {
             text-align: center;
             background: linear-gradient(145deg, #1f2833, #0b0c10);
@@ -162,7 +165,6 @@
             background: var(--accent-red-hover);
             transform: scale(1.05);
         }
-
     </style>
 </head>
 <body>
@@ -234,18 +236,6 @@
         </div>
 
     </div>
-
-    <script>
-        // Parallax-effekt för titeln
-        window.addEventListener('scroll', () => {
-            const title = document.getElementById('main-title');
-            const scrollVal = window.scrollY;
-            if (scrollVal < 400) {
-                title.style.transform = `translateY(${scrollVal * 0.3}px)`;
-                title.style.opacity = 1 - (scrollVal / 450);
-            }
-        });
-    </script>
 
 </body>
 </html>
