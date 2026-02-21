@@ -175,6 +175,22 @@ body {
             background: var(--accent-red-hover);
             transform: scale(1.05);
         }
+        /* QR-kod Styling */
+        .qr-container {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed var(--secondary);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .qr-image {
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -243,6 +259,10 @@ body {
             <a href="https://www.paypal.com/donate/?hosted_button_id=UE95NU5CNT8MG" target="_blank" style="text-decoration: none;">
                 <button class="donate-btn">Donate via PayPal</button>
             </a>
+            <div class="qr-container">
+                <p style="margin-top: 0; font-size: 0.9rem; color: var(--secondary);">Quick Access:</p>
+                <img src="QR-kod.png" alt="QR Code" class="qr-image">
+            </div>
         </div>
 
     </div>
