@@ -7,50 +7,124 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.6;
+                :root {
+            --bg-dark: #0b0c10;
+            --bg-card: rgba(31, 40, 51, 0.9);
+            --primary: #66fcf1;
+            --secondary: #45a29e;
+            --text-main: #c5c6c7;
+            --accent-red: #c0392b;
+            --accent-red-hover: #e74c3c;
+        }
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            /* STATISK BAGGRUND (Selve siden) */
+            background-image: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.7)), 
+                              url('bakgrund.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            color: var(--text-main);
             display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            /* HEADER (Top sektionen) */
+        header {
+            width: 80%;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://i.imgur.com/MYxqJCY.jpeg') center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             text-align: center;
-        }
-        .thank-you-card {
-            background-color: #ffffff;
-            padding: 3rem;
+    
+            /* Ramar - matchar din border-bottom */
+            border-bottom: 4px solid var(--secondary);
+            border-left: 4px solid var(--secondary);
+            border-right: 4px solid var(--secondary);
+
+            /* Runda av alla hörn */
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 20px;
+    
+            box-sizing: border-box;
+            margin-top: 20px; /* Ger lite distans från toppen av sidan */
         }
-        .thank-you-card h1 {
-            font-size: 2.8rem;
-            color: #000000; /* Darker frog green */
-            margin-bottom: 1rem;
+
+        header h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #ffffff;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,1);
         }
-        .thank-you-card p {
+
+        header p {
+            font-style: italic;
             font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 2rem;
+            color: var(--primary);
         }
-        .home-button {
-            background: linear-gradient(to right, black, red);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
+
+        /* Navigation */
+        nav {
+            margin-top: -30px;
+            display: flex;
+            gap: 15px;
+            z-index: 30; /* Ligger ovanför headern */
+        }
+
+        .nav-btn {
+            background: #1f2833;
+            color: var(--primary);
+            padding: 12px 25px;
             text-decoration: none;
-            transition: background 0.3s ease, transform 0.2s ease;
-            font-weight: 500;
-            display: inline-block;
+            font-weight: bold;
+            border: 2px solid var(--secondary);
+            border-radius: 5px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-        .home-button:hover {
-            background: linear-gradient(to right, black, rgb(112, 20, 20));
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+        .nav-btn:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
         }
+
+        /* Content Structure */
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin: 60px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        h2 { color: var(--primary); border-bottom: 1px solid var(--secondary); padding-bottom: 10px; margin-top: 0; }
+        h3 { color: var(--secondary); margin-top: 20px; }
+
+        ul { list-style: none; padding-left: 0; }
+        li { margin-bottom: 12px; line-height: 1.6; }
+        .check { color: var(--primary); font-weight: bold; margin-right: 8px; }
     </style>
 </head>
 <body>
