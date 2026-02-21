@@ -18,19 +18,25 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: var(--bg-dark);
+            /* Statisk bakgrundsbild med mörkt filter */
+            background-image: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.7)), 
+                              url('bakgrund.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
             color: var(--text-main);
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Hero Section */
+        /* Hero Section - Nu genomskinlig för att visa bakgrunden */
         header {
             width: 100%;
             height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://i.imgur.com/MYxqJCY.jpeg') center/cover;
+            background: transparent; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -52,6 +58,7 @@
             font-style: italic;
             font-size: 1.2rem;
             color: var(--primary);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         }
 
         /* Navigation */
@@ -94,6 +101,7 @@
             margin-bottom: 30px;
             border-left: 5px solid var(--primary);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px); /* Ger en snygg glaseffekt mot bakgrunden */
         }
 
         h2 { color: var(--primary); border-bottom: 1px solid var(--secondary); padding-bottom: 10px; margin-top: 0; }
@@ -109,11 +117,12 @@
             justify-content: center;
             gap: 40px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         .social-item img {
-            width: 130px;
-            height: 130px;
+            width: 100px; /* Justerad storlek för att få plats med tre i rad */
+            height: 100px;
             object-fit: contain;
             transition: 0.3s ease;
             border-radius: 50%;
@@ -227,10 +236,16 @@
     </div>
 
     <script>
-        // Parallax effect for Header Title
+        // Parallax-effekt för titeln
         window.addEventListener('scroll', () => {
             const title = document.getElementById('main-title');
             const scrollVal = window.scrollY;
-            
+            if (scrollVal < 400) {
+                title.style.transform = `translateY(${scrollVal * 0.3}px)`;
+                title.style.opacity = 1 - (scrollVal / 450);
+            }
         });
     </script>
+
+</body>
+</html>
